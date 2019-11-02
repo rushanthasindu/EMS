@@ -152,7 +152,12 @@ export function editProjectDetails(project){
         actualCompletionDate: project.actualCompletionDate,
         technology: project.type,
         allocation: project.allocation,
-        completionRate: project.completionRate
+        completionRate: project.completionRate,
+        customerName: project.customerName,
+        customerContact: project.customerContact,
+        customerEmail: project.customerEmail,
+        comment: project.comment,
+        
     }
 }
 

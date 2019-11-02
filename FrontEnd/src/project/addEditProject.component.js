@@ -111,9 +111,14 @@ class AddEditProject extends Component {
                 actualCompletionDate: this.props.project.actualCompletionDate,
                 type: this.props.project.technology,
                 allocation: this.props.project.allocation,
+                customerName: this.props.project.customerName,
+                customerContact: this.props.project.customerContact,
+                customerEmail: this.props.project.customerEmail,
+                comment: this.props.project.comment,
                 completionRate: this.props.project.completionRate
-        }
 
+        }
+console.log(payload);
         if(params.id){
             dispatch(projectAction.editProjectInfo(params.id, payload));
         }else{
@@ -173,7 +178,7 @@ class AddEditProject extends Component {
                             <Paper className={classes.contentRoot} elevation={1}>
                                 <form className={classes.container}>
                                 <Grid container spacing={24}>
-                                        <Grid item xs={10}>
+                                        <Grid item xs={5}>
                                             <TextField
                                                 id="projectName"
                                                 label="Project Name"
@@ -182,6 +187,42 @@ class AddEditProject extends Component {
                                                 className={classes.textField}
                                                 value={this.props.project.projectName || ''}
                                                 onChange={this.handleChange('projectName')}
+                                                margin="normal"
+                                            />
+                                        </Grid>
+                                        <Grid item xs={5}>
+                                            <TextField
+                                                id="customerName"
+                                                label="Customer Name"
+                                                multiline
+                                                rowsMax="2"
+                                                className={classes.textField}
+                                                value={this.props.project.customerName || ''}
+                                                onChange={this.handleChange('customerName')}
+                                                margin="normal"
+                                            />
+                                        </Grid>
+                                        <Grid item xs={5}>
+                                            <TextField
+                                                id="customerContact"
+                                                label="Customer Contact No"
+                                                multiline
+                                                rowsMax="2"
+                                                className={classes.textField}
+                                                value={this.props.project.customerContact || ''}
+                                                onChange={this.handleChange('customerContact')}
+                                                margin="normal"
+                                            />
+                                        </Grid>
+                                        <Grid item xs={5}>
+                                            <TextField
+                                                id="customerEmail"
+                                                label="Customer Email"
+                                                multiline
+                                                rowsMax="2"
+                                                className={classes.textField}
+                                                value={this.props.project.customerEmail || ''}
+                                                onChange={this.handleChange('customerEmail')}
                                                 margin="normal"
                                             />
                                         </Grid>
@@ -275,6 +316,18 @@ class AddEditProject extends Component {
                                             ))}
                                         </Select>
                                         </Grid>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <TextField
+                                                id="comment"
+                                                label="Comments(Task(s))"
+                                                multiline
+                                                rowsMax="2"
+                                                className={classes.textField}
+                                                value={this.props.project.comment || ''}
+                                                onChange={this.handleChange('comment')}
+                                                margin="normal"
+                                            />
                                         </Grid>
                                         <Grid container spacing={24}>
                                         <Grid item xs={10}>

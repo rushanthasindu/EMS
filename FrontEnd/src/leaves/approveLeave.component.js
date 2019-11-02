@@ -111,6 +111,7 @@ class ApproveLeave extends Component {
                       <Table className={classes.table}>
                           <TableHead>
                           <TableRow>
+                              <TableCell>Employee ID</TableCell>
                               <TableCell>Leave Start</TableCell>
                               <TableCell>Leave End</TableCell>
                               <TableCell>Reason</TableCell>
@@ -119,8 +120,12 @@ class ApproveLeave extends Component {
                           </TableHead>
                           <TableBody>
                           {approvalList.map(leave => {
+                             if (leave.status !="Approved"){
                               return (
                               <TableRow key={leave._id}>
+                                <TableCell component="th" scope="row">
+                                  {leave.employeeId}
+                                  </TableCell>
                                   <TableCell component="th" scope="row">
                                   {moment(leave.leaveStart).format('YYYY-MM-DD')}
                                   </TableCell>
@@ -133,6 +138,7 @@ class ApproveLeave extends Component {
                                   </TableCell>
                               </TableRow>
                               );
+                          }
                           })}
                           </TableBody>
                       </Table>

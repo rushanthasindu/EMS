@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '../_components/appbar';
 import Nav from '../_components/nav'; 
+import { blackColor } from '../styles/material-dashboard-react';
 
 
 const drawerWidth = 240;
@@ -13,6 +14,9 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     flexGrow: 1,
+   
+
+    
   },
   appFrame: {
     zIndex: 1,
@@ -37,7 +41,7 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: blackColor,
     padding: theme.spacing.unit * 3,
   },
 });

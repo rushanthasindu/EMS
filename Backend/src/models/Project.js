@@ -4,6 +4,19 @@ const projectSchema = new mongoose.Schema({
   projectId: {
     type: String
   },
+  customerName: {
+    type: String
+  },
+  customerContact: {
+    type: String
+  },
+   customerEmail: {
+     type: String
+   },
+  comment: {
+    type: String
+  },
+
   projectName: {
     type: String,
     required: true
@@ -19,7 +32,8 @@ const projectSchema = new mongoose.Schema({
     default: Date.now
   },
   actualCompletionDate: {
-    type: Date
+    type: Date,  
+    required: true,
   },
   type: {
     type: String,

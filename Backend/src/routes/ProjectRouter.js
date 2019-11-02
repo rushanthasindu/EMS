@@ -22,7 +22,12 @@ projectRouter.post("/", async (req, res) => {
     endDate,
     type,
     allocation,
-    completionRate
+    completionRate,
+    customerEmail,
+    customerContact,
+    comment,
+    actualCompletionDate,
+    customerName
   } = req.body;
   const project = new Project({
     projectName,
@@ -30,7 +35,12 @@ projectRouter.post("/", async (req, res) => {
     endDate,
     type,
     allocation,
-    completionRate
+    completionRate,
+    customerEmail,
+    customerContact,
+    comment, 
+    actualCompletionDate,
+    customerName
   });
 
   try {

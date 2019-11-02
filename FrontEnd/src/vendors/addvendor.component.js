@@ -37,9 +37,30 @@ const RoleOptions =[
     { value: 'GM', label: 'Project Manager' },
     { value: 'EMPLOYEE', label: 'Employee' },
     { value: 'ADMIN', label: 'Admin' },
+    { value: 'MINERSTAFF', label: 'Miner Staff' },
 ];
 
 const skillsMap =[
+    { value: 'c', label: 'C' },
+    { value: 'cpp', label: 'C++' },
+    { value: 'python', label: 'Python' },
+    { value: 'react', label: 'React JS' },
+    { value: 'node', label: 'Node JS' },
+    { value: 'java', label: 'Java' },
+    { value: 'anguler', label: 'Anguler' },
+    { value: 'react', label: 'React JS' }, 
+    { value: 'node', label: 'Node JS' },
+    { value: 'java', label: 'Java' },
+    { value: 'python', label: 'Python' },
+    { value: 'react', label: 'React JS' },  
+    { value: 'node', label: 'Node JS' },
+    { value: 'java', label: 'Java' },
+    { value: 'python', label: 'Python' },
+    { value: 'react', label: 'React JS' },  
+    { value: 'node', label: 'Node JS' },
+    { value: 'java', label: 'Java' },
+    { value: 'python', label: 'Python' },
+    { value: 'react', label: 'React JS' },  
     { value: 'node', label: 'Node JS' },
     { value: 'java', label: 'Java' },
     { value: 'python', label: 'Python' },
@@ -91,6 +112,7 @@ class AddVendor extends Component {
     handleChange = prop => event => {
         const { dispatch } = this.props;
         dispatch(vendorAction.onChangeProps(prop, event));
+        //console.log ("Test");
     };
 
     componentDidMount() {
@@ -105,7 +127,27 @@ class AddVendor extends Component {
         }
     }
 
+    //  validateEmail(inputText)
+    //     {
+    //         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    //         if(inputText.value.props.match(mailformat))return true;
+    //         else
+    //             {
+    //                 alert("You have entered an invalid email address!");
+    //                 return false;
+    //             }
+    //     }
+
+    validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
     handleClick(event){
+        
+        if(this.props.vendor.firstName!="" ||this.props.vendor.lastName!=""||this.props.vendor.address!=""||this.props.vendor.city!=""||this.props.vendor.postalCode!==""||this.props.vendor.skills!=""||this.props.vendor.email!=""||this.props.vendor.role!=""||this.props.vendor.password!=""){
+       
+
+
+
+        if(this.validEmailRegex.test(this.props.vendor.email)){
         const { match : {params } } = this.props;
         const { dispatch } = this.props;
             
@@ -133,6 +175,15 @@ class AddVendor extends Component {
         }else{
             dispatch(vendorAction.createVendor(payload));
         }
+    }
+    else {
+        alert("You have entered an invalid email address!");
+
+    }
+    }
+        else {alert("Some Fields Must be filed out");
+    }
+    
     }
 
 
@@ -383,6 +434,7 @@ class AddVendor extends Component {
                                         <TextField
                                                 id="email"
                                                 label="User Name (Email)"
+                                                type="email"
                                                 multiline
                                                 rowsMax="4"
                                                 className={classes.textField}

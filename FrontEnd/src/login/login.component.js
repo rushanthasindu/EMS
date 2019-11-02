@@ -10,7 +10,8 @@ import { userActions } from '../_actions';
 import { history } from '../_helpers';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom';
-import './login.component.css'
+import './login.component.css';
+import logo from '../logo.png'; // with import
 
 
 const styles = theme => ({
@@ -21,7 +22,9 @@ const styles = theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
+        
     },
+
     margin: {
       margin: theme.spacing.unit,
     },
@@ -85,7 +88,9 @@ class Login extends Component {
    render() {
       const { classes, errorMessage } = this.props;
       return (
+        
         <div className="login-margin">
+            <img src={logo} />
             <Grid container spacing={24}>
                 <Grid item xs={3}>
                 </Grid>
